@@ -1,0 +1,151 @@
+<h1 align="center">ZODIACO CHINO</h1>
+
+<table border="1" width="100%">
+
+    <tr>
+
+        <td   align="center">
+
+            <h2>DATOS PERSONALES</h2>
+
+            <p>
+                <label>NOMBRE:</label>
+                <input type="text" [(ngModel)]="nombre">
+            </p>
+
+            <p>
+                <label>APELLIDO PATERNO:</label>
+                <input type="text" [(ngModel)]="apellidoP">
+            </p>
+
+            <p>
+                <label>APELLIDO MATERNO:</label>
+                <input type="text" [(ngModel)]="apellidoM">
+            </p>
+
+
+
+
+
+
+
+            <h3>FECHA DE NACIMIENTO</h3>
+
+<table>
+    <tr>
+        <td align="center">
+            <label>DÍA:</label><br>
+            <input type="number" [(ngModel)]="dia">
+        </td>
+
+        <td align="center">
+            <label>MES:</label><br>
+            <input type="number" [(ngModel)]="mes">
+        </td>
+
+        <td align="center">
+            <label>AÑO:</label><br>
+            <input type="number" [(ngModel)]="anio">
+        </td>
+    </tr>
+</table>
+
+            <h3>SEXO</h3>
+
+            <p>
+                <input
+                    type="radio"
+                    name="sexo"
+                    value="Masculino"
+                    [(ngModel)]="sexo">
+                Masculino
+            </p>
+
+            <p>
+                <input
+                    type="radio"
+                    name="sexo"
+                    value="Femenino"
+                    [(ngModel)]="sexo">
+                Femenino
+            </p>
+
+            <br>
+
+            <button (click)="Calcular()">IMPRIMIR</button>
+
+        </td>
+
+
+
+
+
+
+
+
+
+
+
+        <td  align="center">
+
+            <h2>RESULTADO</h2>
+
+            <div >
+
+                <table width="100%">
+
+                    <tr>
+
+                       
+                        <td  align="center">
+
+                            <p>
+                                Hola <b>{{nombre}}</b>,
+                            </p>
+
+                            <p>
+                                tienes <b>{{edad}} años</b>.
+                            </p>
+
+                            <p>
+                                Tu signo zodiacal es:
+                            </p>
+
+                            <h1>{{signo}}</h1>
+
+                            <p>
+                                Tu elemento es:
+                            </p>
+
+                            <h1>{{elemento}}</h1>
+
+                        </td>
+
+
+                        
+
+
+
+
+
+
+
+                        <td align="center">
+
+                            <img
+                                [src]="imagen"
+                                width="270">
+
+                        </td>
+
+                    </tr>
+
+                </table>
+
+            </div>
+
+        </td>
+
+    </tr>
+
+</table>
