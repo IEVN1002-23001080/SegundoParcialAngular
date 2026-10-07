@@ -1,151 +1,220 @@
-<h1 align="center">ZODIACO CHINO</h1>
+<br>
+<br>
+<br>
 
-<table border="1" width="100%">
+<div class="max-w-6xl mx-auto py-8">
 
-    <tr>
+  <!-- Título -->
+  <div class="text-center mb-8">
+    <h1 class="text-3xl font-bold text-heading">
+      Zodiaco Chino
+    </h1>
 
-        <td   align="center">
-
-            <h2>DATOS PERSONALES</h2>
-
-            <p>
-                <label>NOMBRE:</label>
-                <input type="text" [(ngModel)]="nombre">
-            </p>
-
-            <p>
-                <label>APELLIDO PATERNO:</label>
-                <input type="text" [(ngModel)]="apellidoP">
-            </p>
-
-            <p>
-                <label>APELLIDO MATERNO:</label>
-                <input type="text" [(ngModel)]="apellidoM">
-            </p>
+    <p class="mt-2 text-body">
+      Ingresa tus datos para conocer tu signo zodiacal chino
+    </p>
+  </div>
 
 
+  <!-- Contenedor principal -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
+    <!-- DATOS PERSONALES -->
+    <div class="bg-neutral-primary border border-default rounded-lg shadow-sm p-6">
+
+      <h2 class="text-xl font-semibold text-heading mb-6">
+        Datos personales
+      </h2>
 
 
+      <!-- Nombre -->
+      <div class="mb-5">
+        <label class="block mb-2 text-sm font-medium text-heading">
+          Nombre
+        </label>
 
-            <h3>FECHA DE NACIMIENTO</h3>
-
-<table>
-    <tr>
-        <td align="center">
-            <label>DÍA:</label><br>
-            <input type="number" [(ngModel)]="dia">
-        </td>
-
-        <td align="center">
-            <label>MES:</label><br>
-            <input type="number" [(ngModel)]="mes">
-        </td>
-
-        <td align="center">
-            <label>AÑO:</label><br>
-            <input type="number" [(ngModel)]="anio">
-        </td>
-    </tr>
-</table>
-
-            <h3>SEXO</h3>
-
-            <p>
-                <input
-                    type="radio"
-                    name="sexo"
-                    value="Masculino"
-                    [(ngModel)]="sexo">
-                Masculino
-            </p>
-
-            <p>
-                <input
-                    type="radio"
-                    name="sexo"
-                    value="Femenino"
-                    [(ngModel)]="sexo">
-                Femenino
-            </p>
-
-            <br>
-
-            <button (click)="Calcular()">IMPRIMIR</button>
-
-        </td>
+        <input
+          type="text"
+          [(ngModel)]="nombre"
+          class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+          placeholder="Escribe tu nombre">
+      </div>
 
 
+      <!-- Apellido paterno -->
+      <div class="mb-5">
+        <label class="block mb-2 text-sm font-medium text-heading">
+          Apellido paterno
+        </label>
+
+        <input
+          type="text"
+          [(ngModel)]="apellidoP"
+          class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+          placeholder="Escribe tu apellido paterno">
+      </div>
 
 
+      <!-- Apellido materno -->
+      <div class="mb-5">
+        <label class="block mb-2 text-sm font-medium text-heading">
+          Apellido materno
+        </label>
+
+        <input
+          type="text"
+          [(ngModel)]="apellidoM"
+          class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+          placeholder="Escribe tu apellido materno">
+      </div>
 
 
+      <!-- Fecha -->
+      <h3 class="text-lg font-semibold text-heading mb-4">
+        Fecha de nacimiento
+      </h3>
+
+      <div class="grid grid-cols-3 gap-3 mb-6">
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-heading">
+            Día
+          </label>
+
+          <input
+            type="number"
+            [(ngModel)]="dia"
+            class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+            placeholder="Día">
+        </div>
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-heading">
+            Mes
+          </label>
+
+          <input
+            type="number"
+            [(ngModel)]="mes"
+            class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+            placeholder="Mes">
+        </div>
+
+        <div>
+          <label class="block mb-2 text-sm font-medium text-heading">
+            Año
+          </label>
+
+          <input
+            type="number"
+            [(ngModel)]="anio"
+            class="bg-neutral-secondary-soft border border-default text-heading text-sm rounded-lg focus:ring-brand focus:border-brand block w-full p-2.5"
+            placeholder="Año">
+        </div>
+
+      </div>
 
 
+      <!-- Sexo -->
+      <h3 class="text-lg font-semibold text-heading mb-4">
+        Sexo
+      </h3>
+
+      <div class="flex items-center mb-3">
+        <input
+          type="radio"
+          name="sexo"
+          value="Masculino"
+          [(ngModel)]="sexo"
+          class="w-4 h-4 text-brand bg-neutral-secondary-soft border-default focus:ring-brand">
+
+        <label class="ms-2 text-sm font-medium text-heading">
+          Masculino
+        </label>
+      </div>
+
+      <div class="flex items-center mb-6">
+        <input
+          type="radio"
+          name="sexo"
+          value="Femenino"
+          [(ngModel)]="sexo"
+          class="w-4 h-4 text-brand bg-neutral-secondary-soft border-default focus:ring-brand">
+
+        <label class="ms-2 text-sm font-medium text-heading">
+          Femenino
+        </label>
+      </div>
 
 
+      <!-- Botón -->
+      <button
+        type="button"
+        (click)="Calcular()"
+        class="w-full text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:outline-none focus:ring-brand-medium font-medium rounded-lg text-sm px-5 py-2.5 text-center">
 
-        <td  align="center">
+        Calcular signo
 
-            <h2>RESULTADO</h2>
+      </button>
 
-            <div >
-
-                <table width="100%">
-
-                    <tr>
-
-                       
-                        <td  align="center">
-
-                            <p>
-                                Hola <b>{{nombre}}</b>,
-                            </p>
-
-                            <p>
-                                tienes <b>{{edad}} años</b>.
-                            </p>
-
-                            <p>
-                                Tu signo zodiacal es:
-                            </p>
-
-                            <h1>{{signo}}</h1>
-
-                            <p>
-                                Tu elemento es:
-                            </p>
-
-                            <h1>{{elemento}}</h1>
-
-                        </td>
+    </div>
 
 
-                        
+    <!-- RESULTADO -->
+    <div class="bg-neutral-primary border border-default rounded-lg shadow-sm p-6">
+
+      <h2 class="text-xl font-semibold text-heading mb-6 text-center">
+        Resultado
+      </h2>
 
 
+      <div class="text-center">
+
+        <p class="text-lg text-body mb-2">
+          Hola <b class="text-heading">{{nombre}}</b>
+        </p>
+
+        <p class="text-body mb-6">
+          Tienes <b class="text-heading">{{edad}} años</b>.
+        </p>
 
 
+        <!-- Signo -->
+        <p class="text-sm text-body">
+          Tu signo zodiacal es:
+        </p>
+
+        <h1 class="text-3xl font-bold text-heading mt-2 mb-6">
+          {{signo}}
+        </h1>
 
 
+        <!-- Elemento -->
+        <p class="text-sm text-body">
+          Tu elemento es:
+        </p>
 
-                        <td align="center">
+        <h2 class="text-2xl font-bold text-heading mt-2 mb-6">
+          {{elemento}}
+        </h2>
 
-                            <img
-                                [src]="imagen"
-                                width="270">
 
-                        </td>
+        <!-- Imagen -->
+        <div class="flex justify-center mt-4">
 
-                    </tr>
+          <img
+            [src]="imagen"
+            width="270"
+            class="rounded-lg shadow-md object-cover"
+            alt="Signo zodiacal">
 
-                </table>
+        </div>
 
-            </div>
+      </div>
 
-        </td>
+    </div>
 
-    </tr>
+  </div>
 
-</table>
+</div>

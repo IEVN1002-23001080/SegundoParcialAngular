@@ -4,14 +4,10 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-zodiaco',
+  standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './zodiaco.html',
 })
-
-
-
-
-
 
 export class Zodiaco {
 
@@ -29,12 +25,6 @@ export class Zodiaco {
   signo: string = '';
   elemento: string = '';
   imagen: string = '';
-
-
-
-
-
-  
 
   Calcular(): void {
 
@@ -123,13 +113,6 @@ export class Zodiaco {
       this.imagen = 'https://ccl.uanl.mx/wp-content/uploads/2023/10/06_horoscopo_chino_Cabra-768x657-1.jpg';
 
     }
-
-
-
-
-
-
-
 
     if (this.anio % 10 == 0 || this.anio % 10 == 1) {
       this.elemento = 'Metal';

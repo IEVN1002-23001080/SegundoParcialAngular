@@ -1,19 +1,14 @@
-import { Component, signal, OnInit } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { Navbar } from './navbar/navbar';
-import { Usuario } from './formularios/usuario/usuario';
-import { initFlowbite } from 'flowbite';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [Navbar, Usuario],
+  imports: [Navbar, RouterOutlet],
   templateUrl: './app.html'
 })
-export class App implements OnInit {
+export class App {
 
   protected readonly title = signal('SegundoParcialAngular');
-
-  ngOnInit(): void {
-    initFlowbite();
-  }
 
 }
