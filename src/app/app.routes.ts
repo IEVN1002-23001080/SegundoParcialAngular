@@ -1,5 +1,8 @@
 import { Routes } from '@angular/router';
 import { ListaAlumnos } from './escuela/listaAlumnos/listaAlumnos';
+import { Cinepolis } from './escuela/cinepolis/cinepolis';
+
+
 
 export const routes: Routes = [
 
@@ -32,7 +35,18 @@ export const routes: Routes = [
 
       {
         path: 'listaAlumnos',
-        component: ListaAlumnos
+        loadComponent: () =>
+          import('./escuela/listaAlumnos/listaAlumnos').then(
+            (c) => c.ListaAlumnos
+          )
+      },
+
+      {
+        path: 'cinepolis',
+        loadComponent: () =>
+          import('./escuela/cinepolis/cinepolis').then(
+            (c) => c.Cinepolis
+          )
       }
 
     ]
