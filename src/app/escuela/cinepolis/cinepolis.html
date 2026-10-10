@@ -1,0 +1,203 @@
+```html
+<div class="max-w-4xl mx-auto p-6">
+
+  <div class="bg-blue-900 rounded-lg shadow p-6">
+
+    <h1 class="text-3xl font-bold text-white text-center mb-8">
+      Cinépolis
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="bg-white rounded-lg p-6">
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">
+          Entradas
+        </h2>
+
+        <form [formGroup]="formulario">
+
+          <div class="mb-5">
+
+            <label
+              for="nombre"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Nombre
+            </label>
+
+            <input
+              type="text"
+              id="nombre"
+              formControlName="nombre"
+              class="bg-gray-50 border border-gray-300 text-gray-900
+                     text-sm rounded-lg focus:ring-blue-500
+                     focus:border-blue-500 block w-full p-2.5"
+              placeholder="Ingresa tu nombre"
+            >
+
+          </div>
+
+          <div class="mb-5">
+
+            <label
+              for="cantidadCompradores"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Cantidad de compradores
+            </label>
+
+            <input
+              type="number"
+              id="cantidadCompradores"
+              formControlName="cantidadCompradores"
+              class="bg-gray-50 border border-gray-300 text-gray-900
+                     text-sm rounded-lg focus:ring-blue-500
+                     focus:border-blue-500 block w-full p-2.5"
+              placeholder="Cantidad de personas"
+            >
+
+          </div>
+
+          <div class="mb-5">
+
+            <label
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              ¿Tarjeta Cineco?
+            </label>
+
+            <div class="flex items-center gap-6">
+
+              <label class="flex items-center">
+
+                <input
+                  type="radio"
+                  formControlName="tarjetaCineco"
+                  value="Si"
+                  class="w-4 h-4 text-blue-600"
+                >
+
+                <span class="ms-2 text-sm text-gray-900">
+                  Sí
+                </span>
+
+              </label>
+
+              <label class="flex items-center">
+
+                <input
+                  type="radio"
+                  formControlName="tarjetaCineco"
+                  value="No"
+                  class="w-4 h-4 text-blue-600"
+                >
+
+                <span class="ms-2 text-sm text-gray-900">
+                  No
+                </span>
+
+              </label>
+
+            </div>
+
+          </div>
+
+          <div class="mb-5">
+
+            <label
+              for="cantidadBoletos"
+              class="block mb-2 text-sm font-medium text-gray-900"
+            >
+              Cantidad de boletos
+            </label>
+
+            <input
+              type="number"
+              id="cantidadBoletos"
+              formControlName="cantidadBoletos"
+              class="bg-gray-50 border border-gray-300 text-gray-900
+                     text-sm rounded-lg focus:ring-blue-500
+                     focus:border-blue-500 block w-full p-2.5"
+              placeholder="Cantidad de boletos"
+            >
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <div class="bg-white rounded-lg p-6">
+
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">
+          Salidas
+        </h2>
+
+        <div class="mb-5">
+
+          <label
+            for="valorPagar"
+            class="block mb-2 text-sm font-medium text-gray-900"
+          >
+            Valor a pagar
+          </label>
+
+          <input
+            type="text"
+            id="valorPagar"
+            [value]="'$' + valorPagar.toFixed(2)"
+            readonly
+            class="bg-gray-100 border border-gray-300 text-gray-900
+                   text-sm rounded-lg block w-full p-2.5"
+          >
+
+        </div>
+
+        <p
+          *ngIf="mensaje"
+          class="text-red-600 text-sm mt-4"
+        >
+          {{ mensaje }}
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="bg-white rounded-lg p-6 mt-6">
+
+      <h2 class="text-2xl font-bold text-gray-900 mb-5">
+        Acciones
+      </h2>
+
+      <div class="flex gap-4">
+
+        <button
+          type="button"
+          (click)="procesar()"
+          class="text-white bg-blue-700 hover:bg-blue-800
+                 focus:ring-4 focus:ring-blue-300
+                 font-medium rounded-lg text-sm px-5 py-2.5"
+        >
+          Procesar
+        </button>
+
+        <button
+          type="button"
+          (click)="salir()"
+          class="text-white bg-gray-600 hover:bg-gray-700
+                 focus:ring-4 focus:ring-gray-300
+                 font-medium rounded-lg text-sm px-5 py-2.5"
+        >
+          Salir
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+```
