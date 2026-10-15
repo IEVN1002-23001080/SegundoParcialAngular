@@ -1,0 +1,117 @@
+<div class="min-h-screen bg-gray-100 p-6">
+  <div class="max-w-6xl mx-auto bg-white rounded-xl shadow-lg p-6">
+
+    <h1 class="text-3xl font-bold text-center text-blue-800 mb-6">
+      Registro de ventas Cinépolis
+    </h1>
+
+    <form [formGroup]="formulario" (ngSubmit)="actualizar()" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+
+      <div>
+        <label class="block font-semibold mb-1">Nombre del comprador</label>
+        <input
+          type="text"
+          formControlName="nombre"
+          class="w-full border rounded-lg p-2"
+          placeholder="Ingresa el nombre">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">Cantidad de compradores</label>
+        <input
+          type="number"
+          formControlName="cantidadCompradores"
+          min="1"
+          class="w-full border rounded-lg p-2">
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">¿Tiene tarjeta Cineco?</label>
+        <select
+          formControlName="tarjetaCineco"
+          class="w-full border rounded-lg p-2">
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">Cantidad de boletos</label>
+        <input
+          type="number"
+          formControlName="cantidadBoletos"
+          min="1"
+          class="w-full border rounded-lg p-2">
+      </div>
+
+      <div class="md:col-span-2 flex flex-wrap gap-3">
+        <button
+          type="submit"
+          [disabled]="idEditar === null"
+          class="bg-blue-600 text-white px-5 py-2 rounded-lg disabled:opacity-50">
+          Actualizar registro
+        </button>
+
+        <button
+          type="button"
+          (click)="regresar()"
+          class="bg-green-600 text-white px-5 py-2 rounded-lg">
+          Regresar
+        </button>
+      </div>
+    </form>
+
+    <h2 class="text-xl font-bold mb-4">Ventas registradas</h2>
+
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse border border-gray-300 text-sm">
+        <thead class="bg-blue-800 text-white">
+          <tr>
+            <th class="border p-3">Nombre</th>
+            <th class="border p-3">Compradores</th>
+            <th class="border p-3">Cineco</th>
+            <th class="border p-3">Boletos</th>
+            <th class="border p-3">Total</th>
+            <th class="border p-3">Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (venta of registros; track venta.id) {
+            <tr class="text-center hover:bg-gray-100">
+              <td class="border p-3">{{ venta.nombre }}</td>
+              <td class="border p-3">{{ venta.cantidadCompradores }}</td>
+              <td class="border p-3">{{ venta.tarjetaCineco }}</td>
+              <td class="border p-3">{{ venta.cantidadBoletos }}</td>
+              <td class="border p-3">{{ venta.valorPagar | currency:'MXN' }}</td>
+              <td class="border p-3">
+                <div class="flex justify-center gap-2">
+                  <button
+                    type="button"
+                    (click)="editar(venta)"
+                    class="bg-yellow-500 text-white px-3 py-1 rounded">
+                    Editar
+                  </button>
+
+                  <button
+                    type="button"
+                    (click)="eliminar(venta.id)"
+                    class="bg-red-600 text-white px-3 py-1 rounded">
+                    Eliminar
+                  </button>
+                </div>
+              </td>
+            </tr>
+          } @empty {
+            <tr>
+              <td colspan="6" class="border p-4 text-center text-gray-500">
+                No hay ventas registradas.
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

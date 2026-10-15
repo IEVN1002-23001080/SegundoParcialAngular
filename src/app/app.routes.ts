@@ -2,8 +2,6 @@ import { Routes } from '@angular/router';
 import { ListaAlumnos } from './escuela/listaAlumnos/listaAlumnos';
 import { Cinepolis } from './escuela/cinepolis/cinepolis';
 
-
-
 export const routes: Routes = [
 
   {
@@ -46,6 +44,14 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./escuela/cinepolis/cinepolis').then(
             (c) => c.Cinepolis
+          )
+      },
+
+      {
+        path: 'ver-registros',
+        loadComponent: () =>
+          import('./escuela/ver-registros/ver-registros').then(
+            (c) => c.VerRegistros
           )
       }
 
