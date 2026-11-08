@@ -1,0 +1,103 @@
+<div class="min-h-screen bg-gray-50 p-4 md:p-8">
+  <div class="mx-auto max-w-2xl">
+
+    <div class="rounded-2xl bg-white p-6 shadow-lg">
+
+      <h1 class="mb-2 text-2xl font-bold text-red-700">
+        Eliminar maestro
+      </h1>
+
+      <p class="mb-6 text-gray-500">
+        Revisa los datos antes de confirmar la eliminación.
+      </p>
+
+      <div
+        *ngIf="cargando"
+        class="py-6 text-center text-gray-500">
+        Cargando información...
+      </div>
+
+      <div *ngIf="!cargando && maestro">
+
+        <div class="space-y-3 rounded-lg bg-gray-50 p-5">
+
+          <p><strong>ID:</strong> {{ maestro.id_maestro }}</p>
+          <p><strong>Nombre:</strong> {{ maestro.nombre }}</p>
+          <p><strong>Apellido paterno:</strong> {{ maestro.apaterno }}</p>
+          <p><strong>Apellido materno:</strong> {{ maestro.amaterno }}</p>
+          <p><strong>Correo:</strong> {{ maestro.correo }}</p>
+
+        </div>
+
+        <p class="mt-5 text-sm text-red-600">
+          Esta acción eliminará el registro del maestro.
+        </p>
+
+        <p *ngIf="mensaje" class="mt-3 text-red-600">
+          {{ mensaje }}
+        </p>
+
+        <div *ngIf="!confirmar" class="mt-6 flex flex-wrap gap-3">
+
+          <button
+            type="button"
+            (click)="confirmar = true"
+            class="rounded-lg bg-red-600 px-5 py-3 font-semibold text-white hover:bg-red-700">
+            Eliminar maestro
+          </button>
+
+          <a
+            routerLink="/utl/maestros"
+            class="rounded-lg bg-gray-200 px-5 py-3 font-semibold text-gray-700 hover:bg-gray-300">
+            Cancelar
+          </a>
+
+        </div>
+
+        <div
+          *ngIf="confirmar"
+          class="mt-6 rounded-lg border border-red-200 bg-red-50 p-4">
+
+          <p class="font-semibold text-red-800">
+            ¿Realmente deseas eliminar este maestro?
+          </p>
+
+          <div class="mt-4 flex flex-wrap gap-3">
+
+            <button
+              type="button"
+              (click)="eliminar()"
+              [disabled]="eliminando"
+              class="rounded-lg bg-red-600 px-5 py-3 font-semibold text-white hover:bg-red-700 disabled:opacity-50">
+              {{ eliminando ? 'Eliminando...' : 'Sí, eliminar' }}
+            </button>
+
+            <button
+              type="button"
+              (click)="confirmar = false"
+              [disabled]="eliminando"
+              class="rounded-lg bg-gray-200 px-5 py-3 font-semibold text-gray-700 hover:bg-gray-300">
+              No, regresar
+            </button>
+
+          </div>
+        </div>
+
+      </div>
+
+      <p
+        *ngIf="!cargando && !maestro && mensaje"
+        class="text-red-600">
+        {{ mensaje }}
+      </p>
+
+      <a
+        *ngIf="!cargando && !maestro"
+        routerLink="/utl/maestros"
+        class="mt-5 inline-block text-blue-700 underline">
+        Regresar a maestros
+      </a>
+
+    </div>
+  </div>
+</div>
